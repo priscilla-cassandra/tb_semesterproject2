@@ -31,7 +31,7 @@ export function renderNavbar(isLoggedIn) {
                   Profile
                 </a>
 
-                <button id="logoutBtn" class="flex items-center gap-2">
+                <button class="logoutBtn flex items-center gap-2">
                   <span class="text-primary-blue"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
                   Logg ut
                 </button>
@@ -67,7 +67,7 @@ export function renderNavbar(isLoggedIn) {
                 Min profil
               </a>
 
-              <button id="logoutBtn" class="flex flex-col items-center text-xs text-text-color">
+              <button class="logoutBtn flex flex-col items-center text-xs text-text-color">
                 <span class="text-primary-blue"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
                 Logg ut
               </button>
@@ -84,4 +84,15 @@ export function renderNavbar(isLoggedIn) {
         </div>
     </nav>
     `;
+}
+
+export function initNavbar(isLoggedIn) {
+  document.getElementById("navbar").innerHTML = renderNavbar(isLoggedIn);
+
+  document.querySelectorAll(".logoutBtn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      logout();
+      window.location.href = "/index.html";
+    });
+  });
 }

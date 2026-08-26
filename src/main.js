@@ -1,4 +1,7 @@
 import "/styles/main.css";
-import { renderNavbar } from "./components/navbar";
+import { initNavbar } from "./components/navbar";
+import { renderFooter } from "./components/footer";
+import { isLoggedIn } from "./api/auth";
 
-document.getElementById("navbar").innerHTML = renderNavbar();
+initNavbar(isLoggedIn());
+document.getElementById("footer").innerHTML = renderFooter();
