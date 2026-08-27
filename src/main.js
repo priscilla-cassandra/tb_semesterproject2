@@ -4,4 +4,4 @@ import { renderFooter } from "./components/footer";
 import { isLoggedIn } from "./api/auth";
 
 initNavbar(isLoggedIn());
-document.getElementById("footer").innerHTML = renderFooter();
+document.getElementById("footer").innerHTML = renderFooter(isLoggedIn());
