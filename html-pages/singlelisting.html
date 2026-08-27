@@ -11,7 +11,48 @@
   </head>
   <body class="bg-background flex min-h-screen flex-col">
     <header id="navbar"></header>
-    <main class="pb-24 md:p-0"></main>
+    <main class="mx-auto flex-1 px-6 py-8 pb-24 md:p-0 2xl:max-w-3/4">
+      <div class="flex items-center">
+        <i class="fa-solid fa-arrow-left"></i>
+        <img src="/assets/logo/logo_small.png" />
+      </div>
+      <div id="searchbar" class="w-full"></div>
+      <div class="flex flex-col md:flex-row">
+        <!--Section 1-->
+        <div class="flex flex-col">
+          <img id="listing-image" src="/assets/images/test-image.jpg" />
+          <div id="thumbnails" class="flex gap-2"></div>
+          <h1 id="listing-title" class="mt-6">Kindle lesebrett (mock title)</h1>
+          <h2 class="highest-bid font-bold md:hidden">Høyeste bud: 100</h2>
+          <p id="listing-description" class="mt-4">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+          </p>
+          <p id="auction-end-date" class="mt-4 font-bold"></p>
+        </div>
+        <!--Section 2-->
+        <div class="flex flex-col">
+          <div id="bid-history">
+            <h2 class="highest-bid hidden font-bold md:block"></h2>
+            <h3 class="font-bold">Budhistorikk</h3>
+            <ul id="bid-history-list">
+              -
+            </ul>
+          </div>
+          <div id="bid-box" class="flex flex-col items-center">
+            <input
+              type="number"
+              id="bid-input"
+              placeholder="Legg inn bud her"
+              class="rounded border text-center"
+            />
+            <button id="bidBtn" class="bg-cta rounded">Gi bud</button>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer id="footer"></footer>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/components/footer.js"></script>
