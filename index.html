@@ -12,7 +12,35 @@
   </head>
   <body class="bg-background flex min-h-screen flex-col">
     <header id="navbar"></header>
-    <main class="flex-1 pb-24 md:p-0"></main>
+    <img
+      src="/assets/images/trondheim_hero.jpg"
+      alt="Bryggehusene langs nidelven i Trondheim"
+      class="hidden h-[350px] w-full object-cover object-[center_30%] md:block 2xl:h-[700px]"
+    />
+    <main
+      class="mx-auto flex flex-1 flex-col items-center pb-24 md:p-0 2xl:max-w-3/4"
+    >
+      <img
+        src="/assets/logo/logo_small.png"
+        class="mt-8 md:hidden"
+        alt="TrønderBørs logo"
+      />
+      <p class="text-primary-blue">"Der trønderske ting får ny verdi"</p>
+      <div id="searchbar" class="w-full"></div>
+      <div class="w-full px-6">
+        <div class="mb-6 flex flex-col gap-3">
+          <label for="sort">Sorter etter</label>
+          <select id="sort" name="sort">
+            <option value="newest">Nyeste</option>
+            <option value="ending-soon">Avsluttes snart</option>
+          </select>
+        </div>
+        <div
+          id="listing-grid"
+          class="grid grid-cols-2 gap-6 md:grid-cols-4"
+        ></div>
+      </div>
+    </main>
     <footer id="footer"></footer>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/components/footer.js"></script>
