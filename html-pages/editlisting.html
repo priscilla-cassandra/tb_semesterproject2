@@ -11,7 +11,83 @@
   </head>
   <body class="bg-background flex min-h-screen flex-col">
     <header id="navbar"></header>
-    <main class="pb-24 md:p-0"></main>
+    <main
+      class="flex flex-1 flex-col items-center justify-center gap-10 pb-24 md:p-0 md:py-10"
+    >
+      <img src="/assets/logo/logo_small.png" class="mt-10 md:hidden" />
+      <div
+        class="w-full max-w-sm rounded-lg bg-white px-10 py-8 shadow-xl md:max-w-md"
+      >
+        <h1 class="text-primary-blue mb-6 text-center text-2xl font-bold">
+          Endre annonse
+        </h1>
+        <form id="new-listing" class="flex flex-col gap-3">
+          <section class="flex flex-col gap-2">
+            <label for="title">Tittel</label>
+            <input
+              id="edit-title"
+              name="title"
+              type="text"
+              placeholder="eks. Telefon"
+              required
+              class="w-full rounded-md border px-2 py-2"
+            />
+          </section>
+          <section class="flex flex-col gap-2">
+            <label for="main-img">Hovedbilde</label>
+            <input
+              id="edit-main-img"
+              name="main-img"
+              type="url"
+              placeholder="Bilde URL"
+              required
+              class="w-full rounded-md border px-2 py-2"
+            />
+          </section>
+          <div id="extra-img" class="flex flex-col gap-2"></div>
+          <button
+            type="button"
+            id="add-img-btn"
+            class="bg-primary-blue w-2/3 rounded-lg py-2 font-semibold text-white"
+          >
+            + Legg til flere bilder
+          </button>
+          <section class="flex flex-col gap-2">
+            <label for="description">Beskrivelse</label>
+            <textarea
+              id="edit-description"
+              name="description"
+              placeholder="Beskrivelse hva du selger"
+              rows="10"
+              class="w-full rounded-md border px-2 py-2"
+              required
+            ></textarea>
+          </section>
+          <section class="flex flex-col gap-2">
+            <label for="auction-end">Auksjon avsluttes</label>
+            <input
+              id="edit-auction-end"
+              name="auction-end"
+              type="datetime-local"
+              class="w-full rounded-md border px-2 py-2"
+              required
+            />
+          </section>
+          <button
+            type="submit"
+            class="bg-primary-blue mt-4 rounded-lg py-3 font-semibold text-white"
+          >
+            Oppdater annonse
+          </button>
+          <button
+            type="submit"
+            class="bg-red-warning rounded-lg py-3 font-semibold text-white"
+          >
+            Slett annonse
+          </button>
+        </form>
+      </div>
+    </main>
     <footer id="footer"></footer>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/components/footer.js"></script>
