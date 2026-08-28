@@ -21,12 +21,12 @@
         <h1 class="text-primary-blue mb-6 text-center text-2xl font-bold">
           Registrer ny bruker
         </h1>
-        <form id="login-form" class="flex flex-col gap-3">
+        <form id="register-form" class="flex flex-col gap-3">
           <section class="flex flex-col gap-2">
-            <label for="username">Brukernavn</label>
+            <label for="name">Brukernavn</label>
             <input
-              id="username"
-              name="username"
+              id="name"
+              name="name"
               type="text"
               placeholder="Ola Normann"
               class="w-full rounded-md border px-2 py-2"
@@ -39,7 +39,7 @@
               id="email"
               name="email"
               type="email"
-              pattern="[a-zA-Z0-9._%+-]+@stud\.noroff\.no"
+              pattern="[a-zA-Z0-9._%+\-]+@stud\.noroff\.no"
               title="Må være en @stud.noroff.no adresse"
               required
               placeholder="ola@stud.noroff.no"
@@ -52,6 +52,7 @@
               id="password"
               name="password"
               type="password"
+              minlenght="8"
               class="w-full rounded-md border px-2 py-2"
               placeholder="xxxxxxxx"
               required
@@ -70,7 +71,7 @@
         >
           <i class="fa-solid fa-xmark text-xl text-white"></i>
           <div>
-            <p id="message-title" class="font-bold text-white">
+            <p id="message-title-error" class="font-bold text-white">
               Kunne ikke registrere ny bruker
             </p>
             <p class="text-sm text-white">Vennligst prøv igjen</p>
@@ -82,7 +83,7 @@
         >
           <i class="fa-solid fa-circle-check text-green-text text-xl"></i>
           <div>
-            <p id="message-title" class="text-green-text font-bold">
+            <p id="message-title-success" class="text-green-text font-bold">
               Registreringen var vellykket
             </p>
             <p class="text-green-text text-sm">Du kan nå logge inn</p>
