@@ -64,11 +64,36 @@
             Registrer bruker
           </button>
         </form>
+        <div
+          id="error-message"
+          class="bg-red-warning mt-6 flex hidden items-center gap-4 rounded-md px-4 py-4 shadow-md"
+        >
+          <i class="fa-solid fa-xmark text-xl text-white"></i>
+          <div>
+            <p id="message-title" class="font-bold text-white">
+              Kunne ikke registrere ny bruker
+            </p>
+            <p class="text-sm text-white">Vennligst prøv igjen</p>
+          </div>
+        </div>
+        <div
+          id="success-message"
+          class="bg-green-success mt-6 flex hidden items-center gap-4 rounded-md px-4 py-4 shadow-md"
+        >
+          <i class="fa-solid fa-circle-check text-green-text text-xl"></i>
+          <div>
+            <p id="message-title" class="text-green-text font-bold">
+              Registreringen var vellykket
+            </p>
+            <p class="text-green-text text-sm">Du kan nå logge inn</p>
+          </div>
+        </div>
       </div>
     </main>
     <footer id="footer"></footer>
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/components/footer.js"></script>
     <script type="module" src="/src/components/navbar.js"></script>
+    <script type="module" src="/src/pages/register.js"></script>
   </body>
 </html>
