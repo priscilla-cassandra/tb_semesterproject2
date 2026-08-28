@@ -41,14 +41,22 @@
               -
             </ul>
           </div>
-          <div id="bid-box" class="flex flex-col items-center">
+          <div id="bid-box" class="flex flex-col items-center gap-3">
             <input
               type="number"
               id="bid-input"
               placeholder="Legg inn bud her"
-              class="rounded border text-center"
+              class="w-full rounded border py-2 text-center"
             />
-            <button id="bidBtn" class="bg-cta rounded">Gi bud</button>
+            <button id="bidBtn" class="bg-cta w-full rounded py-2">
+              Gi bud
+            </button>
+            <section
+              id="credits-mobile"
+              class="from-primary-blue to-gradient-blue text-md rounded-lg bg-linear-to-r px-4 py-2 text-center text-white md:hidden"
+            >
+              <i class="fa-solid fa-coins"></i>1000
+            </section>
           </div>
         </div>
       </div>
