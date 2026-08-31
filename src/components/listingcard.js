@@ -6,11 +6,11 @@ export function renderListings(listings) {
   listingGrid.innerHTML = listings
     .map(
       (listing) => `
-    <article class=" card-wrapper rounded-lg bg-white shadow-lg flex flex-col items-center hover:shadow-lg transition p-4" data-id="${listing.id}">
-        <div class="flex flex-col items-center py-2 px-4">
-            <img class="w-full object-cover rounded-lg h-40" src="${listing.media[0]?.url || "placeholder.jpg"}" alt="${listing.media[0]?.alt || ""}"">
-            <h3 class="font-semibold text-lg mt-2">${listing.title}</h3>
-            <p>Bud avsluttes: <br> ${listing.endsAt}</p>
+    <article class="min-w-0 card-wrapper rounded-lg bg-white shadow-lg flex flex-col items-center hover:shadow-2xl transition" data-id="${listing.id}">
+        <div class="flex flex-col items-center py-3 px-3 min-w-0 w-full">
+            <img class="w-full object-cover rounded-lg h-40 md:h-60 min-w-0" src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}" alt="${listing.media[0]?.alt || ""}">
+            <h3 class="font-bold text-md mt-2 break-words min-w-0 w-full line-clamp-2">${listing.title}</h3>
+            <p class="w-full">Bud avsluttes: <br> ${listing.endsAt}</p>
         </div>
     </article>
     `,
@@ -25,3 +25,5 @@ export function renderListings(listings) {
     window.location.href = `/html-pages/singlelisting.html?id=${id}`;
   });
 }
+
+export function renderSingleListing(listing) {}
