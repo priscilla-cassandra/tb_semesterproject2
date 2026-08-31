@@ -1,7 +1,7 @@
 import { get } from "../api/apiclient";
 
 export async function getListings() {
-  const { data } = await get("/auction/listings");
+  const { data } = await get("/auction/listings?sort=created&sordOrder=desc");
   return data;
 }
 
