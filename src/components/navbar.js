@@ -1,7 +1,6 @@
 import "/styles/main.css";
 import { logout } from "../api/auth";
 
-//TO-DO: Import logout() function and add to logout nav link
 //TO-DO: Replace hardcoded credits, logout (and profile image) with real API once login flow is done!
 export function renderNavbar(isLoggedIn) {
   return `
