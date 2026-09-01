@@ -11,17 +11,16 @@
   </head>
   <body class="bg-background flex min-h-screen flex-col">
     <header id="navbar"></header>
-    <main class="mx-auto flex-1 px-6 py-8 pb-24 md:p-0 2xl:max-w-3/4">
-      <section
-        id="single-listing"
-        class="flex flex-col gap-6 md:flex-row"
-      ></section>
-
+    <main class="mx-auto min-w-0 flex-1 px-6 py-8 pb-24 md:p-0 2xl:max-w-3/4">
       <div class="flex items-center">
         <i class="fa-solid fa-arrow-left"></i>
         <img src="/assets/logo/logo_small.png" class="md:hidden" />
       </div>
       <div id="searchbar" class="w-full"></div>
+      <section
+        id="single-listing"
+        class="flex min-w-0 flex-col items-center gap-6 rounded-lg bg-white px-2 py-2 shadow-lg md:flex-row md:bg-transparent md:shadow-none"
+      ></section>
     </main>
     <footer id="footer"></footer>
     <script type="module" src="/src/main.js"></script>
