@@ -28,8 +28,8 @@ export function renderListings(listings) {
 
 export function renderSingleListing(listing) {
   return `
-        <section>
-            <img src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}">
+        <section class="min-w-0 w-full px-3 py-3">
+            <img src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}" class="w-full rounded-lg h-60 object-contain bg-gray-200">
             <h1>${listing.title}</h1>
             <p>${listing.description}</p>
         </section>
