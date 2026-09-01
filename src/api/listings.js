@@ -5,7 +5,7 @@ export async function getListings() {
   return data;
 }
 
-export async function getSingleListing() {
-  const { data } = await get(`/auction/listings/${id}`);
+export async function getSingleListing(id) {
+  const { data } = await get(`/auction/listings/${id}?_bids=true`);
   return data;
 }
