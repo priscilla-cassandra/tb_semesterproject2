@@ -26,4 +26,12 @@ export function renderListings(listings) {
   });
 }
 
-export function renderSingleListing(listing) {}
+export function renderSingleListing(listing) {
+  return `
+        <section>
+            <img src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}">
+            <h1>${listing.title}</h1>
+            <p>${listing.description}</p>
+        </section>
+    `;
+}
