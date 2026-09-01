@@ -5,7 +5,10 @@ export function renderBidHistory(bids) {
     return `<p>Ingen bud lagt inn</p>`;
   }
 
+  const highestBid = Math.max(...bids.map((bid) => bid.amount));
+
   return `
+    <h1 class="font-semibold text-lg"><span class="text-xl font-bold">Høyeste bud:</span> <br> ${highestBid} mynter</h1>
     <ul>
         ${bids
           .map((bid) => {
