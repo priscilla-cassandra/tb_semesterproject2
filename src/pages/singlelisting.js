@@ -1,5 +1,5 @@
 import { getSingleListing } from "../api/listings";
-import { renderBidForm } from "../components/bidform";
+import { renderBidForm, placeBid } from "../components/bidform";
 import { renderBidHistory } from "../components/bidhistory";
 import { renderSingleListing } from "../components/listingcard";
 
@@ -11,7 +11,9 @@ function renderSingleListingPage(listing) {
             ${renderSingleListing(listing)}
         </div>
         <div class="flex flex-col gap-4 md:w-1/3">
-            ${renderBidHistory(listing.bids)}
+            <div id="bid-history-container">
+               ${renderBidHistory(listing.bids)} 
+            </div>
             ${renderBidForm(listing)}
         </div>
     `;
@@ -23,6 +25,8 @@ async function initPageLoad() {
 
   const listing = await getSingleListing(id);
   container.innerHTML = renderSingleListingPage(listing);
+
+  placeBid(listing);
 }
 
 initPageLoad();
