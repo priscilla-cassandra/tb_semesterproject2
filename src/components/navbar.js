@@ -1,8 +1,9 @@
 import "/styles/main.css";
 import { logout } from "../api/auth";
+import { renderCreditsDesktop } from "./credits";
 
 //TO-DO: Replace hardcoded credits, logout (and profile image) with real API once login flow is done!
-export function renderNavbar(isLoggedIn) {
+export function renderNavbar(isLoggedIn, credits) {
   return `
     <nav class="shadow-md">
 
@@ -15,23 +16,20 @@ export function renderNavbar(isLoggedIn) {
               isLoggedIn
                 ? `
               <div class="flex items-center gap-6">
-                <a href="/html-pages/createlisting.html" class="flex items-center gap-2">
-                  <span class="text-primary-blue"><i class="fa-solid fa-circle-plus"></i></span>
+                <a href="/html-pages/createlisting.html" class="flex items-center gap-2 text-lg">
+                  <span class="text-primary-blue"><i class="fa-solid fa-circle-plus fa-lg"></i></span>
                   Ny annonse
                 </a>
                 
-                <span class="flex items-center gap-2">
-                  <span class="text-primary-blue"><i class="fa-solid fa-coins"></i></span>
-                  1000
-                </span>
+               ${renderCreditsDesktop(credits)}
 
-                <a href="/html-pages/profile.html" class="flex items-center gap-2">
-                  <span class="text-primary-blue"><i class="fa-regular fa-circle-user"></i></span>
-                  Profile
+                <a href="/html-pages/profile.html" class="flex items-center gap-2 text-lg">
+                  <span class="text-primary-blue"><i class="fa-regular fa-circle-user fa-lg"></i></span>
+                  Profil
                 </a>
 
-                <button class="logoutBtn flex items-center gap-2">
-                  <span class="text-primary-blue"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                <button class="logoutBtn flex items-center gap-2 text-lg">
+                  <span class="text-primary-blue"><i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></span>
                   Logg ut
                 </button>
               </div>
@@ -47,27 +45,27 @@ export function renderNavbar(isLoggedIn) {
         </div>
         
         <!-- MOBILE NAVBAR -->
-        <div class="md:hidden fixed bottom-0 inset-x-0 z-50 justify-around items-center bg-background py-5 px-3 shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.2)]">
+        <div class="flex md:hidden fixed bottom-0 inset-x-0 z-50 justify-around items-center bg-background py-5 px-3 shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.2)]">
             ${
               isLoggedIn
                 ? `
-              <a href="/index.html" class="flex flex-col items-center text-xs text-text-color">
-                <span class="text-primary-blue"<i class="fa-solid fa-house-chimney"></i></span>
+              <a href="/index.html" class="flex flex-col items-center text-md text-text-color">
+                <span class="text-primary-blue"><i class="fa-solid fa-house-chimney fa-xl"></i></span>
                 Forside
               </a>
 
-              <a href="/html-pages/createlisting.html" class="flex flex-col items-center text-xs text-text-color">
-                <span class="text-primary-blue"><i class="fa-solid fa-circle-plus"></i></span>
+              <a href="/html-pages/createlisting.html" class="flex flex-col items-center text-md text-text-color">
+                <span class="text-primary-blue"><i class="fa-solid fa-circle-plus fa-xl"></i></span>
                 Ny annonse
               </a>
 
-              <a href="/html-pages/profile.html" class="flex flex-col items-center text-xs text-text-color">
-                <span class="text-primary-blue"><i class="fa-regular fa-circle-user"></i></span>
+              <a href="/html-pages/profile.html" class="flex flex-col items-center text-md text-text-color">
+                <span class="text-primary-blue"><i class="fa-regular fa-circle-user fa-xl"></i></span>
                 Min profil
               </a>
 
-              <button class="logoutBtn flex flex-col items-center text-xs text-text-color">
-                <span class="text-primary-blue"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+              <button class="logoutBtn flex flex-col items-center text-md text-text-color">
+                <span class="text-primary-blue"><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i></span>
                 Logg ut
               </button>
               `
@@ -85,8 +83,11 @@ export function renderNavbar(isLoggedIn) {
     `;
 }
 
-export function initNavbar(isLoggedIn) {
-  document.getElementById("navbar").innerHTML = renderNavbar(isLoggedIn);
+export function initNavbar(isLoggedIn, credits) {
+  document.getElementById("navbar").innerHTML = renderNavbar(
+    isLoggedIn,
+    credits,
+  );
 
   document.querySelectorAll(".logoutBtn").forEach((btn) => {
     btn.addEventListener("click", () => {
