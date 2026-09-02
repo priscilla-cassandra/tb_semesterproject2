@@ -54,3 +54,23 @@ export function renderProfileListingCard(listing) {
     </section>
   `;
 }
+
+export function renderBidListings(bid) {
+  const { amount, listing } = bid;
+  const { title, media, endsAt } = listing;
+  return `
+    <section>
+      <div>
+        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}"/>
+        <div class="flex flex-col justify-center gap-2">
+          <p class="font-semibold">${title}</p>
+          <p>Ditt bud: ${amount}</p>
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold">Auksjonen avsluttes:</p>
+        <p>${new Date(endsAt).toLocaleDateString("no-NO")}</p>
+      </div>
+    </section>
+  `;
+}
