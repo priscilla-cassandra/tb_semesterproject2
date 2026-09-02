@@ -8,6 +8,10 @@ export function isLoggedIn() {
   return !!getAccessToken();
 }
 
+export function getName() {
+  return localStorage.getItem("name");
+}
+
 //Logout function
 export function logout() {
   localStorage.removeItem("accessToken");
