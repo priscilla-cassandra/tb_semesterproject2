@@ -1,11 +1,26 @@
 import "/styles/main.css";
-import { getProfile } from "../api/profile";
+import {
+  getProfile,
+  getListingsByProfile,
+  getBidsByProfile,
+} from "../api/profile";
+import { getName } from "../api/auth";
 import { renderCreditsMobile } from "../components/credits";
-import { renderProfileListingCard } from "../components/listingcard";
-import { renderBidListings } from "../components/listingcard";
+import {
+  renderProfileListingCard,
+  renderBidListings,
+} from "../components/listingcard";
 
 export function renderProfile(profile) {
-  const { name, banner, bio, avatar, listings = [], bids = [] } = profile; //Object destructuring - pull out data needed for the profile
+  const {
+    name,
+    banner,
+    credits,
+    bio,
+    avatar,
+    listings = [],
+    bids = [],
+  } = profile; //Object destructuring - pull out data needed for the profile
 
   return `
         <img src="${banner?.url || "/assets/images/profile_banner_placeholder.png"}" alt="Banner image for ${name}'s profile">
@@ -14,7 +29,7 @@ export function renderProfile(profile) {
                 <img src="${avatar?.url || "/public/assets/images/profile_placeholder.png"}" alt="${name}'s profile picture"/>
                 <div>
                     ${name}
-                    ${renderCreditsMobile()}
+                    ${renderCreditsMobile(credits)}
                 </div>
             </article>
             <p>${bio}</p>
@@ -24,10 +39,24 @@ export function renderProfile(profile) {
             </div>
         </section>
         <section>
+            <h2 class="text-lg font-semibold">Mine annonser<h2/>
             ${listings.map(renderProfileListingCard).join("")}
         </section>
         <section>
+            <h2 class="text-lg font-semibold">Mine bud</h2>
             ${bids.map(renderBidListings).join("")}
         </section>
     `;
 }
+
+export async function initProfilePage() {
+  const name = getName();
+  const profile = await getProfile(name);
+  const listings = await getListingsByProfile(name);
+  const bids = await getBidsByProfile(name);
+
+  const container = document.getElementById("profile-page");
+  container.innerHTML = renderProfile({ ...profile, listings, bids });
+}
+
+initProfilePage();
