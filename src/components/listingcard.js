@@ -35,3 +35,22 @@ export function renderSingleListing(listing) {
         </section>
     `;
 }
+
+export function renderProfileListingCard(listing) {
+  const { title, media, endsAt, _count } = listing;
+  return `
+    <section aria-labelledby="my-listing" class="bg-white py-2 px-2 flex justify-between rounded-lg">
+      <div class="flex items-center gap-2">
+        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="rounded-lg"/>
+        <div class="flex flex-col justify-center gap-2">
+          <p class="font-semibold">${title}</p>
+          <p>Bud: ${_count?.bids ?? 0}</p>
+        </div>
+      </div>
+      <div class="text-center flex flex-col justify-center gap-2">
+        <p class="font-semibold">Auksjonen avsluttes:</p>
+        <p>${new Date(endsAt).toLocaleDateString("no-NO")}</p>
+      </div>
+    </section>
+  `;
+}
