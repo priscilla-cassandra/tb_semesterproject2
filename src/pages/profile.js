@@ -1,4 +1,5 @@
 import "/styles/main.css";
+import { logout } from "../api/auth";
 import {
   getProfile,
   getListingsByProfile,
@@ -35,7 +36,7 @@ export function renderProfile(profile) {
                 </article>
                 <p>${bio}</p>
                 <div class="flex gap-2 justify-center">
-                    <button type="button" class="bg-primary-blue text-white rounded-lg flex-1 py-2 min-w-[160px] font-semibold">Rediger profil</button>
+                    <button type="button" id="edit-profile-button"class="bg-primary-blue text-white rounded-lg flex-1 py-2 min-w-[160px] font-semibold">Rediger profil</button>
                     <button type="button" id="logout-button" class="flex-1 bg-white border border-primary-blue rounded-lg text-primary-blue py-2 min-w-[160px] font-semibold">Logg ut</button>
                 </div>
             </section>
@@ -60,6 +61,14 @@ export async function initProfilePage() {
 
   const container = document.getElementById("profile-page");
   container.innerHTML = renderProfile({ ...profile, listings, bids });
+
+  document.getElementById("logout-button").addEventListener("click", logout());
+  document
+    .getElementById("edit-profile-button")
+    .addEventListener(
+      "click",
+      window.location.href("/html-pages/editprofile.html"),
+    );
 }
 
 initProfilePage();
