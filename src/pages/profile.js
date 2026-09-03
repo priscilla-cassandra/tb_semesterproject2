@@ -62,13 +62,14 @@ export async function initProfilePage() {
   const container = document.getElementById("profile-page");
   container.innerHTML = renderProfile({ ...profile, listings, bids });
 
-  document.getElementById("logout-button").addEventListener("click", logout());
+  document.getElementById("logout-button").addEventListener("click", () => {
+    logout();
+  });
   document
     .getElementById("edit-profile-button")
-    .addEventListener(
-      "click",
-      window.location.href("/html-pages/editprofile.html"),
-    );
+    .addEventListener("click", () => {
+      window.location.href = "/html-pages/editprofile.html";
+    });
 }
 
 initProfilePage();
