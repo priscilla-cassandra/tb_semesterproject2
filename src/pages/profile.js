@@ -24,28 +24,31 @@ export function renderProfile(profile) {
 
   return `
         <img src="${banner?.url || "/assets/images/profile_banner_placeholder.png"}" alt="Banner image for ${name}'s profile">
-        <section aria-labelledby="Profile-info">
-            <article>
-                <img src="${avatar?.url || "/public/assets/images/profile_placeholder.png"}" alt="${name}'s profile picture"/>
-                <div>
-                    ${name}
-                    ${renderCreditsMobile(credits)}
+        <div class="mx-2">
+            <section aria-labelledby="Profile-info" class="flex flex-col items-center my-8 gap-6 mx-6">
+                <article class="flex flex-row items-center gap-2">
+                    <img src="${avatar?.url || "/public/assets/images/profile_placeholder.png"}" alt="${name}'s profile picture"/ class="rounded-full w-full h-40">
+                    <div>
+                        <div class="text-xl mb-2 font-semibold">${name}</div>
+                        <div class="text-lg">${renderCreditsMobile(credits)}</div>
+                    </div>
+                </article>
+                <p>${bio}</p>
+                <div class="flex gap-2 justify-center">
+                    <button type="button" class="bg-primary-blue text-white rounded-lg flex-1 py-2 min-w-[160px] font-semibold">Rediger profil</button>
+                    <button type="button" id="logout-button" class="flex-1 bg-white border border-primary-blue rounded-lg text-primary-blue py-2 min-w-[160px] font-semibold">Logg ut</button>
                 </div>
-            </article>
-            <p>${bio}</p>
-            <div class="flex gap-2 w-full">
-                <button type="button" class="bg-primary-blue text-white rounded-lg w-1/2 py-2">Rediger profil</button>
-                <button type="button" id="logout-button" class="w-1/2 bg-white border border-primary-blue rounded-lg text-primary-blue py-2">Logg ut</button>
-            </div>
-        </section>
-        <section>
-            <h2 class="text-lg font-semibold">Mine annonser<h2/>
-            ${listings.map(renderProfileListingCard).join("")}
-        </section>
-        <section>
-            <h2 class="text-lg font-semibold">Mine bud</h2>
-            ${bids.map(renderBidListings).join("")}
-        </section>
+            </section>
+            <section>
+                <h2 class="text-lg md:text-2xl font-semibold">Mine annonser<h2/>
+                ${listings.map(renderProfileListingCard).join("")}
+            </section>
+            <section class="mt-4">
+                <h2 class="text-lg md:text-2xl font-semibold">Mine bud</h2>
+                ${bids.map(renderBidListings).join("")}
+            </section>
+        </div>
+        
     `;
 }
 

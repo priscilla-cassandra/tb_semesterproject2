@@ -39,9 +39,9 @@ export function renderSingleListing(listing) {
 export function renderProfileListingCard(listing) {
   const { title, media, endsAt, _count } = listing;
   return `
-    <section aria-labelledby="my-listing" class="bg-white py-2 px-2 flex justify-between rounded-lg">
+    <section aria-labelledby="my-listing" class="flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg">
       <div class="flex items-center gap-2">
-        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="rounded-lg"/>
+        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-full h-20 md:h-40 rounded-lg object-cover bg-gray-200"/>
         <div class="flex flex-col justify-center gap-2">
           <p class="font-semibold">${title}</p>
           <p>Bud: ${_count?.bids ?? 0}</p>
@@ -59,15 +59,15 @@ export function renderBidListings(bid) {
   const { amount, listing } = bid;
   const { title, media, endsAt } = listing;
   return `
-    <section>
-      <div>
-        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}"/>
-        <div class="flex flex-col justify-center gap-2">
-          <p class="font-semibold">${title}</p>
-          <p>Ditt bud: ${amount}</p>
+    <section class="flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg ">
+      <div class="flex items-center gap-2">
+        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-full h-20 md:h-40 rounded-lg object-cover bg-gray-200"/>
+        <div class="flex flex-col gap-2 justify-center md:text-lg">
+          <p class="font-semibold ">${title}</p>
+          <p>Mitt bud: ${amount}</p>
         </div>
       </div>
-      <div>
+      <div class="text-center md:text-lg">
         <p class="font-semibold">Auksjonen avsluttes:</p>
         <p>${new Date(endsAt).toLocaleDateString("no-NO")}</p>
       </div>

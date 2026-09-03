@@ -7,10 +7,10 @@ const container = document.getElementById("single-listing");
 
 function renderSingleListingPage(listing) {
   return `
-        <div class="md:w-2/3">
+        <div class="md:w-1/2">
             ${renderSingleListing(listing)}
         </div>
-        <div class="flex flex-col gap-4 md:w-1/3">
+        <div class="flex flex-col gap-4 md:w-1/2">
             <div id="bid-history-container">
                ${renderBidHistory(listing.bids)} 
             </div>
