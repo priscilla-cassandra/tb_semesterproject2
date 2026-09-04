@@ -1,5 +1,3 @@
-import "/styles/main.css";
-
 export function renderBidHistory(bids) {
   if (!bids || bids.length === 0) {
     return `<p>Ingen bud lagt inn</p>`;

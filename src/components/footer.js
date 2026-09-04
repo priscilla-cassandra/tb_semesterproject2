@@ -1,4 +1,3 @@
-import "/styles/main.css";
 import { isLoggedIn } from "../api/auth";
 
 export function renderFooter(isLoggedIn) {

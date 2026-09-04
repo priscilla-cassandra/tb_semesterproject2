@@ -1,4 +1,3 @@
-import "/styles/main.css";
 import { isLoggedIn } from "../api/auth";
 import { post, get } from "../api/apiclient";
 import { renderBidHistory } from "./bidhistory";

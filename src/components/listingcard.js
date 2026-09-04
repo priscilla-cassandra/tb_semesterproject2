@@ -1,5 +1,3 @@
-import "/styles/main.css";
-
 export function renderListings(listings) {
   const listingGrid = document.getElementById("listing-grid");
 

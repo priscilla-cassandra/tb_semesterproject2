@@ -1,4 +1,3 @@
-import "/styles/main.css";
 import { logout } from "../api/auth";
 import { renderCreditsDesktop } from "./credits";
 
