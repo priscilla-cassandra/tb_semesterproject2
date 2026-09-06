@@ -17,3 +17,9 @@ export function logout() {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("name");
 }
+
+//Checks if the listing belongs to the logged in user
+export function isOwner(listing) {
+  const username = localStorage.getItem("name");
+  return listing.seller?.name === username;
+}
