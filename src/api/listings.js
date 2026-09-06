@@ -14,7 +14,7 @@ export async function getSingleListing(id) {
 }
 
 export async function postNewListing(requestBody) {
-  const { data } = await post(`auction/listings`, requestBody);
+  const { data } = await post(`/auction/listings`, requestBody);
   return data;
 }
 
