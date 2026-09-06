@@ -9,7 +9,7 @@ export async function getListings() {
 }
 
 export async function getSingleListing(id) {
-  const { data } = await get(`/auction/listings/${id}?_bids=true_seller=true`);
+  const { data } = await get(`/auction/listings/${id}?_bids=true&_seller=true`);
   return data;
 }
 
