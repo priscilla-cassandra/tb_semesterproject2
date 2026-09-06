@@ -3,7 +3,10 @@ import { renderBidForm, placeBid } from "../components/bidform";
 import { renderBidHistory } from "../components/bidhistory";
 import { renderSingleListing } from "../components/listingcard";
 import { isOwner } from "../api/auth";
-import { renderListingActions } from "../components/listingactions";
+import {
+  renderListingActions,
+  listingActionsListeners,
+} from "../components/listingactions";
 import { isLoggedIn } from "../api/auth";
 
 const container = document.getElementById("single-listing");
@@ -35,10 +38,16 @@ async function initPageLoad() {
   const id = params.get("id");
 
   const listing = await getSingleListing(id);
+
+  const loggedIn = isLoggedIn();
+  const owner = loggedIn && isOwner(listing);
+
   container.innerHTML = renderSingleListingPage(listing);
 
   //If the logged in user is NOT the owner of the listing, call placeBid()
-  if (!isOwner(listing) && isLoggedIn()) {
+  if (owner) {
+    listingActionsListeners(listing);
+  } else if (loggedIn) {
     placeBid(listing);
   }
 }
