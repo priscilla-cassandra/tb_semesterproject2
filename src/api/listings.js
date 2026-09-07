@@ -18,8 +18,8 @@ export async function postNewListing(requestBody) {
   return data;
 }
 
-export async function editListing() {
-  const { data } = await put(`/auction/listings/${id}`);
+export async function updateListing(id, requestBody) {
+  const { data } = await put(`/auction/listings/${id}`, requestBody);
   return data;
 }
 
