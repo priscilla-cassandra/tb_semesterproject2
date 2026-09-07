@@ -1,6 +1,6 @@
 import { put } from "../api/apiclient";
 import { getName } from "../api/auth";
-import { getProfile } from "../api/profile";
+import { getProfile, updateProfile as updateProfileApi } from "../api/profile";
 
 const name = getName();
 const editForm = document.getElementById("edit-profile");
@@ -65,7 +65,7 @@ async function updateProfile() {
   }
 
   try {
-    await put(`/auction/profiles/${name}`, requestBody);
+    await updateProfileApi(name, requestBody);
     showSuccess();
     setTimeout(() => {
       window.location.href = `/html-pages/profile.html`;
