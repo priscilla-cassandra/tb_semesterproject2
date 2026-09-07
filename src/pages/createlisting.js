@@ -32,7 +32,7 @@ async function createNewListing() {
   };
 
   const extraImgInputs = [
-    ...document.querySelectorAll(`input[name="extra-img"]`), //...spread operator to create an array
+    ...document.querySelectorAll(`input[name="extra-img"]`), //...spread operator to create an array of any extra images
   ];
 
   const media = [mainImageInput, ...extraImgInputs] //...spread to put mainImage first in the array, and then spread the rest after it
