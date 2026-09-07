@@ -1,4 +1,3 @@
-import { put } from "../api/apiclient";
 import { getName } from "../api/auth";
 import { getProfile, updateProfile as updateProfileApi } from "../api/profile";
 
