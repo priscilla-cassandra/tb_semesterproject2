@@ -28,7 +28,7 @@ export function renderProfile(profile) {
         <div class="mx-2">
             <section aria-labelledby="Profile-info" class="flex flex-col items-center my-8 gap-6 mx-6">
                 <article class="flex flex-row items-center gap-2">
-                    <img src="${avatar?.url || "/public/assets/images/profile_placeholder.png"}" alt="${name}'s profile picture"/ class="rounded-full w-full h-40">
+                    <img src="${avatar?.url || "/public/assets/images/profile_placeholder.png"}" alt="${name}'s profile picture" class="rounded-full w-full h-40">
                     <div>
                         <div class="text-xl mb-2 font-semibold">${name}</div>
                         <div class="text-lg">${renderCreditsMobile(credits)}</div>
@@ -41,7 +41,7 @@ export function renderProfile(profile) {
                 </div>
             </section>
             <section>
-                <h2 class="text-lg md:text-2xl font-semibold">Mine annonser<h2/>
+                <h2 class="text-lg md:text-2xl font-semibold">Mine annonser</h2>
                 ${listings.map(renderProfileListingCard).join("")}
             </section>
             <section class="mt-4">
