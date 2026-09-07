@@ -27,9 +27,9 @@
         <h1 class="text-primary-blue mb-6 text-center text-2xl font-bold">
           Endre annonse
         </h1>
-        <form id="new-listing" class="flex flex-col gap-3">
+        <form id="edit-listing-form" class="flex flex-col gap-3">
           <section class="flex flex-col gap-2">
-            <label for="title">Tittel</label>
+            <label for="edit-title">Tittel</label>
             <input
               id="edit-title"
               name="title"
@@ -40,7 +40,7 @@
             />
           </section>
           <section class="flex flex-col gap-2">
-            <label for="main-img">Hovedbilde</label>
+            <label for="edit-main-img">Hovedbilde</label>
             <input
               id="edit-main-img"
               name="main-img"
@@ -50,7 +50,7 @@
               class="w-full rounded-md border px-2 py-2"
             />
           </section>
-          <div id="extra-img" class="flex flex-col gap-2"></div>
+          <div id="extra-img-container" class="flex flex-col gap-2"></div>
           <button
             type="button"
             id="add-img-btn"
@@ -59,7 +59,7 @@
             + Legg til flere bilder
           </button>
           <section class="flex flex-col gap-2">
-            <label for="description">Beskrivelse</label>
+            <label for="edit-description">Beskrivelse</label>
             <textarea
               id="edit-description"
               name="description"
@@ -70,7 +70,7 @@
             ></textarea>
           </section>
           <section class="flex flex-col gap-2">
-            <label for="auction-end">Auksjon avsluttes</label>
+            <label for="edit-auction-end">Auksjon avsluttes</label>
             <input
               id="edit-auction-end"
               name="auction-end"
@@ -80,21 +80,48 @@
             />
           </section>
           <button
+            id="update-button"
             type="submit"
             class="bg-primary-blue mt-4 rounded-lg py-3 font-semibold text-white"
           >
             Oppdater annonse
           </button>
           <button
-            type="submit"
+            id="delete-btn"
+            type="button"
             class="bg-red-warning rounded-lg py-3 font-semibold text-white"
           >
             Slett annonse
           </button>
         </form>
+        <div
+          id="message"
+          class="bg-red-warning mt-6 flex hidden items-center gap-4 rounded-md px-4 py-4 shadow-md"
+        >
+          <i class="fa-solid fa-xmark text-xl text-white"></i>
+          <div>
+            <p id="message-title" class="font-bold text-white">
+              Kunne ikke oppdatere annonsen.
+            </p>
+            <p class="text-sm text-white">Vennligst prøv igjen</p>
+          </div>
+        </div>
+        <div
+          id="success-message"
+          class="bg-green-success mt-6 flex hidden items-center gap-4 rounded-md px-4 py-4 shadow-md"
+        >
+          <i class="fa-solid fa-circle-check text-green-text text-xl"></i>
+          <div>
+            <p id="message-title-success" class="text-green-text font-bold">
+              Annonsen din ble oppdatert!
+            </p>
+            <p class="text-green-text text-sm">La oss se på den!</p>
+          </div>
+        </div>
       </div>
     </main>
     <footer id="footer"></footer>
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/pages/editlisting.js"></script>
   </body>
 </html>
