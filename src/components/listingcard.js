@@ -1,6 +1,6 @@
-export function renderListings(listings) {
-  const listingGrid = document.getElementById("listing-grid");
+const listingGrid = document.getElementById("listing-grid");
 
+export function renderListings(listings) {
   listingGrid.innerHTML = listings
     .map(
       (listing) => `
@@ -14,7 +14,9 @@ export function renderListings(listings) {
     `,
     )
     .join("");
+}
 
+export function listingGridEventListener() {
   listingGrid.addEventListener("click", (event) => {
     const listingCard = event.target.closest(".card-wrapper");
     if (!listingCard) return;
