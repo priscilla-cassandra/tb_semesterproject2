@@ -24,7 +24,7 @@ function renderSingleListingPage(listing) {
             </div>
             ${
               !loggedIn
-                ? `<p>Please log in to place bit</p>`
+                ? `<p>Please log in to place bid</p>`
                 : owner
                   ? renderListingActions(listing)
                   : renderBidForm(listing)
