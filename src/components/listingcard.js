@@ -88,3 +88,14 @@ export function renderBidListings(bid) {
     </section>
   `;
 }
+
+//Checks a listing against current filter mode, and returns it true or false
+export function listingMatch(listing, filterMode) {
+  if (filterMode === "active-listings") {
+    return new Date(listing.endsAt) > new Date();
+  } else if (filterMode === "no-bids") {
+    return listing.bids.length === 0;
+  } else {
+    return true;
+  }
+}
