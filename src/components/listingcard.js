@@ -25,9 +25,23 @@ export function renderListings(listings) {
 }
 
 export function renderSingleListing(listing) {
+  const mainImage =
+    listing.media[0]?.url || "/assets/images/listing_img_placeholder.png";
+  const extraImages = listing.media.slice(1); //Get everything except index 0
   return `
         <section class="min-w-0 w-full px-3 py-3">
-            <img src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}" class="w-full rounded-lg h-60 object-contain bg-gray-200">
+            <img src="${mainImage}" class="w-full rounded-lg h-60 object-contain bg-gray-200">
+            ${
+              extraImages.length > 0
+                ? `<div class="flex gap-2 mt-2 flex-wrap">
+                ${extraImages
+                  .map(
+                    (img) =>
+                      `<img src="${img.url}" alt="${img.alt || ""}" class="w-16 h-16 object-cover rounded-md bg-gray-200"/>`,
+                  )
+                  .join("")}</div>`
+                : ""
+            }
             <h1>${listing.title}</h1>
             <p>${listing.description}</p>
         </section>
