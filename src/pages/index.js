@@ -1,5 +1,9 @@
-import { renderListings } from "../components/listingcard";
+import {
+  renderListings,
+  listingGridEventListener,
+} from "../components/listingcard";
 import { getListings } from "../api/listings";
+import { initSearchBar } from "../components/searchbar";
 
 function showError(text) {
   document.getElementById("listing-grid").textContent = text;
@@ -9,6 +13,7 @@ async function initListingGrid() {
   try {
     const listings = await getListings();
     renderListings(listings);
+    listingGridEventListener();
   } catch (error) {
     console.error(error.message);
     if (error.status === 404) {
@@ -22,3 +27,4 @@ async function initListingGrid() {
 }
 
 initListingGrid();
+initSearchBar();
