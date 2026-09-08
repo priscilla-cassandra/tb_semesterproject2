@@ -5,7 +5,7 @@ export function renderSearchBar() {
   return `
     <div class = "relative flex items-center gap-3 px-5 py-3 w-full">   
         <input type="text" placeholder="Søk i hele TrønderBørs" id="search-input" class="rounded-lg bg-white w-full pl-10 pr-12 py-3">
-        <button id="search-button" class="absolute right-4" type="button">
+        <button id="search-button" class="absolute right-8" type="button">
             <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
         </button>  
     </div>`;
