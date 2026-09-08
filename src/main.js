@@ -17,4 +17,9 @@ const credits = await getCredits(loggedIn);
 initNavbar(loggedIn, credits);
 document.getElementById("footer").innerHTML = renderFooter(loggedIn);
 
-const creditsMobile = document.getElementById("credits-mobile");
+async function displayCreditsMobile() {
+  const creditsMobile = document.getElementById("credits-mobile");
+  creditsMobile.innerHTML = renderCreditsMobile(credits ?? 0);
+}
+
+displayCreditsMobile(credits);
