@@ -32,7 +32,7 @@ export function renderSingleListing(listing) {
   const extraImages = listing.media.slice(1); //Get everything except index 0
   return `
         <section class="min-w-0 w-full px-3 py-3">
-            <img src="${mainImage}" class="w-full rounded-lg h-60 object-contain bg-gray-200">
+            <img src="${mainImage}" class="w-full rounded-lg h-60 object-contain bg-gray-200 md:h-80">
             ${
               extraImages.length > 0
                 ? `<div class="flex gap-2 mt-2 flex-wrap">
@@ -44,7 +44,7 @@ export function renderSingleListing(listing) {
                   .join("")}</div>`
                 : ""
             }
-            <h1>${listing.title}</h1>
+            <h1 class="text-xl lg:text-2xl font-semibold my-2">${listing.title}</h1>
             <p>${listing.description}</p>
         </section>
     `;
