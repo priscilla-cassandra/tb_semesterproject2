@@ -15,10 +15,10 @@ function renderSingleListingPage(listing) {
   const loggedIn = isLoggedIn();
   const owner = loggedIn && isOwner(listing);
   return `
-        <div class="md:w-1/2">
+        <div class="md:w-3/5 w-full">
             ${renderSingleListing(listing)}
         </div>
-        <div class="flex flex-col gap-4 md:w-1/2">
+        <div class="flex flex-col gap-4 md:w-2/5 w-full">
             <div id="bid-history-container">
                ${renderBidHistory(listing.bids)} 
             </div>
