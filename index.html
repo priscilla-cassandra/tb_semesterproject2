@@ -17,16 +17,20 @@
       alt="Bryggehusene langs nidelven i Trondheim"
       class="hidden h-[350px] w-full object-cover object-[center_30%] md:block 2xl:h-[700px]"
     />
-    <main class="flex flex-1 flex-col pb-24 md:mx-auto md:p-20 2xl:max-w-3/4">
+    <main
+      class="flex flex-1 flex-col pb-24 md:mx-auto md:max-w-4xl md:p-2 lg:max-w-5xl xl:max-w-7xl"
+    >
       <img
         src="/assets/logo/logo_small.png"
         class="mt-8 self-center md:hidden"
         alt="TrønderBørs logo"
       />
-      <p class="text-primary-blue self-center">
+      <p
+        class="text-primary-blue self-center py-4 font-semibold italic md:text-lg xl:text-xl"
+      >
         "Der trønderske ting får ny verdi"
       </p>
-      <div id="searchbar" class="w-full"></div>
+      <div id="searchbar" class="mx-auto w-full lg:max-w-2xl"></div>
       <div class="mt-10 w-full px-6">
         <div class="flex items-center justify-between">
           <div class="mb-6 flex flex-col gap-3">
@@ -37,14 +41,7 @@
               <option value="active-listings">Aktive auksjoner</option>
             </select>
           </div>
-          <div>
-            <section
-              id="credits-mobile"
-              class="from-primary-blue to-gradient-blue text-md rounded-lg bg-linear-to-r px-4 py-2 text-center text-white md:hidden"
-            >
-              <i class="fa-solid fa-coins"></i>1000
-            </section>
-          </div>
+          <div id="credits-mobile" class="md:hidden"></div>
         </div>
 
         <section
