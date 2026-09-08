@@ -51,8 +51,11 @@ async function createNewListing() {
   try {
     submitButton.disabled = true; //Disable button when the user has clicked it to post new listing
     hideErrorMessage();
-    await postNewListing(requestBody);
+    const newListing = await postNewListing(requestBody);
     showSuccess();
+    setTimeout(() => {
+      window.location.href = `/html-pages/singlelisting.html?id=${newListing.id}`;
+    }, 2000);
   } catch (error) {
     console.error(error.message);
 
