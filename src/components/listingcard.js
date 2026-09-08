@@ -8,7 +8,7 @@ export function renderListings(listings) {
         <div class="flex flex-col items-center py-3 px-3 min-w-0 w-full">
             <img class="w-full object-cover rounded-lg h-40 md:h-60 min-w-0" src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}" alt="${listing.media[0]?.alt || ""}">
             <h3 class="font-bold text-md mt-2 break-words min-w-0 w-full line-clamp-2">${listing.title}</h3>
-            <p class="w-full">Bud avsluttes: <br> ${listing.endsAt}</p>
+            <p class="w-full">Bud avsluttes: <br>${new Date(listing.endsAt).toLocaleDateString("no-NO")}</p>
         </div>
     </article>
     `,
@@ -30,6 +30,7 @@ export function renderSingleListing(listing) {
   const mainImage =
     listing.media[0]?.url || "/assets/images/listing_img_placeholder.png";
   const extraImages = listing.media.slice(1); //Get everything except index 0
+  const hasEnded = new Date(listing.endsAt) < new Date();
   return `
         <section class="min-w-0 w-full px-3 py-3">
             <img src="${mainImage}" class="w-full rounded-lg h-60 object-contain bg-gray-200 md:h-80">
@@ -46,6 +47,9 @@ export function renderSingleListing(listing) {
             }
             <h1 class="text-xl lg:text-2xl font-semibold my-2">${listing.title}</h1>
             <p>${listing.description}</p>
+            <p class="mt-4 text-lg font-semibold">
+            ${hasEnded ? "Auksjonen er avsluttet" : `Auksjonen avsluttes: ${new Date(listing.endsAt).toLocaleDateString("no-NO")}, ${new Date(listing.endsAt).toLocaleTimeString("no-NO")}`}
+            </p>
         </section>
     `;
 }
