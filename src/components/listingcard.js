@@ -51,11 +51,11 @@ export function renderSingleListing(listing) {
 }
 
 export function renderProfileListingCard(listing) {
-  const { title, media, endsAt, _count } = listing;
+  const { id, title, media, endsAt, _count } = listing;
   return `
-    <section aria-labelledby="my-listing" class="flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg">
+    <a href="/html-pages/singlelisting.html?id=${id}" aria-labelledby="my-listing" class="card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg">
       <div class="flex items-center gap-2">
-        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-full h-20 md:h-40 rounded-lg object-cover bg-gray-200"/>
+        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 h-20 md:w-40 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
         <div class="flex flex-col justify-center gap-2">
           <p class="font-semibold">${title}</p>
           <p>Bud: ${_count?.bids ?? 0}</p>
@@ -65,17 +65,17 @@ export function renderProfileListingCard(listing) {
         <p class="font-semibold">Auksjonen avsluttes:</p>
         <p>${new Date(endsAt).toLocaleDateString("no-NO")}</p>
       </div>
-    </section>
+    </a>
   `;
 }
 
 export function renderBidListings(bid) {
   const { amount, listing } = bid;
-  const { title, media, endsAt } = listing;
+  const { id, title, media, endsAt } = listing;
   return `
-    <section class="flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg ">
+    <a href="/html-pages/singlelisting.html?id=${id}" class="card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg ">
       <div class="flex items-center gap-2">
-        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-full h-20 md:h-40 rounded-lg object-cover bg-gray-200"/>
+        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-40 h-20 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
         <div class="flex flex-col gap-2 justify-center md:text-lg">
           <p class="font-semibold ">${title}</p>
           <p>Mitt bud: ${amount}</p>
@@ -85,7 +85,7 @@ export function renderBidListings(bid) {
         <p class="font-semibold">Auksjonen avsluttes:</p>
         <p>${new Date(endsAt).toLocaleDateString("no-NO")}</p>
       </div>
-    </section>
+    </a>
   `;
 }
 
