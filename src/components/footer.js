@@ -4,7 +4,7 @@ export function renderFooter(isLoggedIn) {
   return `
     <footer class="bg-primary-blue text-white py-10 flex flex-col items-center mt-auto">
     
-        <!---DESKTOP NAVBAR--->
+        <!---DESKTOP FOOTER--->
         <div class="hidden md:flex flex-col items-center mt-auto gap-18">
             <div class="flex flex-col items-center mt-auto gap-3">
                 <a href="/index.html" class="text-white">
@@ -24,8 +24,8 @@ export function renderFooter(isLoggedIn) {
             <p>© 2026 TrønderBørs</p>
         </div>
 
-        <!---MOBILE NAVBAR--->
-        <div class="md:hidden flex flex-col items-center mt-auto gap-11">
+        <!---MOBILE FOOTER--->
+        <div class="md:hidden flex flex-col items-center mt-auto gap-11 pb-20">
             <div class="flex flex-col items-center mt-auto gap-3">
                 <a href="/index.html" class="text-white">
                     <img src="/assets/logo/logo_small_white.png">
