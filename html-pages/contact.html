@@ -11,10 +11,41 @@
   </head>
   <body class="bg-background flex min-h-screen flex-col">
     <header id="navbar"></header>
-    <main class="pb-24 md:p-0"></main>
+    <main
+      class="flex flex-1 flex-col items-start justify-center gap-8 px-5 pb-24 md:mx-auto md:max-w-4xl md:py-10"
+    >
+      <img
+        src="/assets/logo/logo_small.png"
+        class="mt-10 self-center md:hidden"
+      />
+      <div id="credits-mobile" class="self-center md:hidden"></div>
+      <h1 class="text-primary-blue mt-5 text-2xl font-bold">Kontakt oss</h1>
+      <div class="flex flex-col gap-4">
+        <h2 class="text-xl font-semibold">
+          Har du spørsmål eller trenger hjelp?
+        </h2>
+        <p>
+          Ta gjerne kontakt med oss dersom du har spørsmål om TrønderBørs,
+          annonser, budgivning eller brukerkontoen din. Vi hjelper deg så godt
+          vi kan.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h2 class="text-xl font-semibold">Kontaktinformasjon</h2>
+        <p>
+          <span class="font-semibold">Adresse</span><br />TrønderBørs AS<br />Trønderveien
+          98<br />7053 Trondheim
+        </p>
+        <p>
+          <span class="font-semibold">Telefon:</span> +4798765432 <br /><span
+            class="font-semibold"
+            >Epost:</span
+          >
+          kontakt@tb.no
+        </p>
+      </div>
+    </main>
     <footer id="footer"></footer>
     <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/src/components/footer.js"></script>
-    <script type="module" src="/src/components/navbar.js"></script>
   </body>
 </html>
