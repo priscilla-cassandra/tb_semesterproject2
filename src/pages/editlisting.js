@@ -38,6 +38,7 @@ async function getListingToEdit() {
     mainImageInput.value = result.media[0].url;
     descriptionInput.value = result.description;
     endsAtInput.value = result.endsAt.slice(0, 16);
+    endsAtInput.disabled = true;
 
     const extraImages = result.media.slice(1);
     const container = document.getElementById("extra-img-container");
@@ -72,7 +73,6 @@ async function updateListing() {
 
   const requestBody = {
     title: titleInput.value,
-    endsAt: endsAtInput.value,
   };
 
   if (descriptionInput.value) {
