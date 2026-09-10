@@ -40,7 +40,7 @@ export function renderProfile(profile) {
                     <button type="button" id="logout-button" class="flex-1 bg-white border border-primary-blue rounded-lg text-primary-blue py-2 min-w-[160px] font-semibold">Logg ut</button>
                 </div>
             </section>
-            <section class="flex flex-col gap-3">
+            <section class="flex flex-col gap-3 mb-6">
                 <h2 class="text-lg md:text-2xl font-semibold">Mine annonser</h2>
                 ${listings.map(renderProfileListingCard).join("")}
             </section>
