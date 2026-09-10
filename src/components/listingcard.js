@@ -116,7 +116,7 @@ export function renderProfileListingCard(listing) {
     <a href="/html-pages/singlelisting.html?id=${id}" aria-labelledby="my-listing" class="hover:bg-gray-200 card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg">
       <div class="flex items-center gap-2">
         <div class="relative overflow-hidden">
-          <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 h-20 md:w-40 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
+          <img src="${media?.[0]?.url || "/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 h-20 md:w-40 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
           ${renderEndedBannerSmall(listing.endsAt)}
         </div>
         
@@ -140,7 +140,7 @@ export function renderBidListings(bid) {
     <a href="/html-pages/singlelisting.html?id=${id}" class="hover:bg-gray-200 card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg ">
       <div class="flex items-center gap-2">
         <div class="relative overflow-hidden">
-          <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-40 h-20 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
+          <img src="${media?.[0]?.url || "/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-40 h-20 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
           ${renderEndedBannerSmall(listing.endsAt)}
         </div>
         
