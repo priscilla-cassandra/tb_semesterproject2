@@ -24,7 +24,7 @@ export function renderProfile(profile) {
   } = profile; //Object destructuring - pull out data needed for the profile
 
   return `
-        <img src="${banner?.url || "/assets/images/profile_banner_placeholder.png"}" alt="Banner image for ${name}'s profile" class="h-50 md:h-60 lg:h-65 xl:h-70">
+        <img src="${banner?.url || "/assets/images/profile_banner_placeholder.png"}" alt="Banner image for ${name}'s profile" class="w-full h-50 object-cover md:h-60 lg:h-65 xl:h-70">
         <div class="mx-2">
             <section aria-labelledby="Profile-info" class="flex flex-col items-center my-8 gap-6 mx-6">
                 <article class="flex flex-row items-center gap-2">
