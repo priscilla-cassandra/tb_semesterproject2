@@ -19,4 +19,13 @@ The project can be viewed and run by cloning the repo to VSCode
 5. Run `npm run dev` to start the Vite dev server
 6. Open the local URL shown in the terminal (usually `http://localhost:5173`)
 
+## Link to live website
+https://tb-semesterproject2.vercel.app/index.html
 
+## Author
+**Name:** Priscilla C. Neeraas <br>
+**GitHub**: priscilla-cassandra
+
+## Contact
+priscilla-92@live.com <br>
+[LinkedIn](https://www.linkedin.com/in/priscilla-neeraas-379410145/)
