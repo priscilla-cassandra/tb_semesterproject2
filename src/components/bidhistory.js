@@ -7,7 +7,7 @@ export function renderBidHistory(bids) {
 
   return `
     <h1 class="font-semibold text-lg"><span class="text-xl font-bold">Høyeste bud:</span> <br> ${highestBid} credits</h1>
-    <h2 class="text-ml font-semibold mt-4">Budhistorikk:</h2>
+    <h2 class="font-semibold mt-4">Budhistorikk:</h2>
     <ul class="mb-4">
         ${bids
           .map((bid) => {
