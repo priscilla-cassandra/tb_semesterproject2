@@ -6,7 +6,7 @@ export function renderBidForm() {
   return `
         <form id="bid-form" class="flex flex-col gap-2">
             <input type="number" id="bid-input" aria-label="Bud" min="1" step="1" placeholder="Legg inn bud her" class="w-full rounded border py-2 text-center"/>
-            <button id="bidBtn" type="submit" class="bg-cta text-white w-full rounded py-2 font-semibold text-lg hover:bg-cta-hover">Gi bud</button>
+            <button id="bidBtn" type="submit" class="bg-cta w-full rounded py-2 font-semibold text-lg hover:bg-cta-hover">Gi bud</button>
             <div id="credits-mobile" class="md:hidden"></div>
         </form>
         <div id="bid-success-message" class="bg-green-success mt-6 flex hidden items-center gap-4 rounded-md px-4 py-4 shadow-md">
