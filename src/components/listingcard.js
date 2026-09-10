@@ -5,13 +5,13 @@ export function renderListings(listings) {
   listingGrid.innerHTML = listings
     .map(
       (listing) => `
-    <article class="  min-w-0 card-wrapper rounded-lg bg-white shadow-lg flex flex-col items-center hover:shadow-2xl transition" data-id="${listing.id}">
+    <article class="cursor-pointer hover:bg-gray-200 min-w-0 card-wrapper rounded-lg bg-white shadow-lg flex flex-col items-center transition" data-id="${listing.id}">
             <div class="flex flex-col items-center py-3 px-3 min-w-0 w-full">
               <div class="relative overflow-hidden w-full">
                 <img class="w-full object-cover rounded-lg h-40 md:h-60 min-w-0" src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}" alt="${listing.media[0]?.alt || ""}">
                 ${renderEndedBanner(listing.endsAt)}
               </div>
-              <h3 class="font-bold text-md mt-2 break-words min-w-0 w-full line-clamp-2">${listing.title}</h3>
+              <h3 class="font-bold mt-2 break-words min-w-0 w-full line-clamp-2">${listing.title}</h3>
               <p class="w-full">Bud avsluttes: <br>${new Date(listing.endsAt).toLocaleDateString("no-NO")}</p>
             </div>
     </article>
@@ -35,7 +35,7 @@ export function renderSingleListing(listing) {
     listing.media[0]?.url || "/assets/images/listing_img_placeholder.png";
   const hasEnded = new Date(listing.endsAt) < new Date();
   return `
-        <section class="min-w-0 w-full md:bg-white md:py-5 md:px-3 rounded-lg md:shadow-lg
+        <section class="min-w-0 w-full md:bg-white md:mb-15 md:px-3 py-4 rounded-lg md:shadow-lg
         ">
           <div class="relative overflow-hidden">
             <img id="main-image" src="${mainImage}" class="w-full rounded-lg h-60 object-contain md:h-80 py-4 bg-gray-100">
@@ -111,19 +111,19 @@ export function imageCarouselListeners(listing) {
 export function renderProfileListingCard(listing) {
   const { id, title, media, endsAt, _count } = listing;
   return `
-    <a href="/html-pages/singlelisting.html?id=${id}" aria-labelledby="my-listing" class="card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg">
+    <a href="/html-pages/singlelisting.html?id=${id}" aria-labelledby="my-listing" class="hover:bg-gray-200 card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg">
       <div class="flex items-center gap-2">
         <div class="relative overflow-hidden">
           <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 h-20 md:w-40 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
           ${renderEndedBannerSmall(listing.endsAt)}
         </div>
         
-        <div class="flex flex-col justify-center gap-2">
+        <div class="flex flex-col justify-center gap-2 md:text-lg">
           <p class="font-semibold">${title}</p>
           <p>Bud: ${_count?.bids ?? 0}</p>
         </div>
       </div>
-      <div class="text-center flex flex-col justify-center gap-2">
+      <div class="text-center flex flex-col justify-center gap-2 md:text-lg">
         <p class="font-semibold">Auksjonen avsluttes:</p>
         <p>${new Date(endsAt).toLocaleDateString("no-NO")}</p>
       </div>
@@ -135,7 +135,7 @@ export function renderBidListings(bid) {
   const { amount, listing } = bid;
   const { id, title, media, endsAt } = listing;
   return `
-    <a href="/html-pages/singlelisting.html?id=${id}" class="card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg ">
+    <a href="/html-pages/singlelisting.html?id=${id}" class="hover:bg-gray-200 card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg ">
       <div class="flex items-center gap-2">
         <div class="relative overflow-hidden">
           <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-40 h-20 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>

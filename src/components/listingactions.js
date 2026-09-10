@@ -3,8 +3,8 @@ import { deleteListing } from "../api/listings";
 export function renderListingActions(listing) {
   return `
         <div class="flex flex-col gap-2">
-            <button type="button" id="edit-listing-button" class="bg-primary-blue text-white w-full rounded py-2 font-semibold text-lg hover:bg-primary-blue-hover">Endre annonse</button>
-            <button type="button" id="delete-button" class="bg-red-warning text-white w-full rounded py-2 font-semibold text-lg hover:bg-red-warning-hover">SLETT</button>
+            <button type="button" id="edit-listing-button" class="bg-primary-blue text-white w-full rounded py-2 font-semibold text-lg hover:bg-primary-blue-hover cursor-pointer">Endre annonse</button>
+            <button type="button" id="delete-button" class="bg-red-warning text-white w-full rounded py-2 font-semibold text-lg hover:bg-red-warning-hover cursor-pointer">SLETT</button>
         </div>
     `;
 }

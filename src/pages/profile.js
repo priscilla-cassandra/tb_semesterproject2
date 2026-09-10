@@ -36,16 +36,16 @@ export function renderProfile(profile) {
                 </article>
                 <p>${bio}</p>
                 <div class="flex gap-2 justify-center">
-                    <button type="button" id="edit-profile-button"class="bg-primary-blue text-white rounded-lg flex-1 py-2 min-w-[160px] font-semibold">Rediger profil</button>
-                    <button type="button" id="logout-button" class="flex-1 bg-white border border-primary-blue rounded-lg text-primary-blue py-2 min-w-[160px] font-semibold">Logg ut</button>
+                    <button type="button" id="edit-profile-button"class=" hover:bg-primary-blue-hover bg-primary-blue text-white rounded-lg flex-1 py-2 min-w-[160px] font-semibold">Rediger profil</button>
+                    <button type="button" id="logout-button" class="hover:bg-gray-200 flex-1 bg-white border border-primary-blue rounded-lg text-primary-blue py-2 min-w-[160px] font-semibold">Logg ut</button>
                 </div>
             </section>
             <section class="flex flex-col gap-3 mb-6">
-                <h2 class="text-lg md:text-2xl font-semibold">Mine annonser</h2>
+                <h2 class="font-semibold">Mine annonser</h2>
                 ${listings.map(renderProfileListingCard).join("")}
             </section>
-            <section class="flex flex-col gap-3">
-                <h2 class="text-lg md:text-2xl font-semibold">Mine bud</h2>
+            <section class="flex flex-col gap-3 md:mb-15">
+                <h2 class="font-semibold">Mine bud</h2>
                 ${bids.map(renderBidListings).join("")}
             </section>
         </div>
