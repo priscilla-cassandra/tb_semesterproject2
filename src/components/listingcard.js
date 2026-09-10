@@ -1,15 +1,19 @@
+import { renderEndedBanner, renderEndedBannerSmall } from "./listingstatus";
 const listingGrid = document.getElementById("listing-grid");
 
 export function renderListings(listings) {
   listingGrid.innerHTML = listings
     .map(
       (listing) => `
-    <article class="min-w-0 card-wrapper rounded-lg bg-white shadow-lg flex flex-col items-center hover:shadow-2xl transition" data-id="${listing.id}">
-        <div class="flex flex-col items-center py-3 px-3 min-w-0 w-full">
-            <img class="w-full object-cover rounded-lg h-40 md:h-60 min-w-0" src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}" alt="${listing.media[0]?.alt || ""}">
-            <h3 class="font-bold text-md mt-2 break-words min-w-0 w-full line-clamp-2">${listing.title}</h3>
-            <p class="w-full">Bud avsluttes: <br>${new Date(listing.endsAt).toLocaleDateString("no-NO")}</p>
-        </div>
+    <article class="  min-w-0 card-wrapper rounded-lg bg-white shadow-lg flex flex-col items-center hover:shadow-2xl transition" data-id="${listing.id}">
+            <div class="flex flex-col items-center py-3 px-3 min-w-0 w-full">
+              <div class="relative overflow-hidden w-full">
+                <img class="w-full object-cover rounded-lg h-40 md:h-60 min-w-0" src="${listing.media[0]?.url || "/assets/images/listing_img_placeholder.png"}" alt="${listing.media[0]?.alt || ""}">
+                ${renderEndedBanner(listing.endsAt)}
+              </div>
+              <h3 class="font-bold text-md mt-2 break-words min-w-0 w-full line-clamp-2">${listing.title}</h3>
+              <p class="w-full">Bud avsluttes: <br>${new Date(listing.endsAt).toLocaleDateString("no-NO")}</p>
+            </div>
     </article>
     `,
     )
@@ -32,8 +36,13 @@ export function renderSingleListing(listing) {
   const extraImages = listing.media.slice(1); //Get everything except index 0
   const hasEnded = new Date(listing.endsAt) < new Date();
   return `
-        <section class="min-w-0 w-full px-3 py-3">
-            <img src="${mainImage}" class="w-full rounded-lg h-60 object-contain bg-gray-200 md:h-80">
+        <section class="min-w-0 w-full md:bg-white md:py-5 md:px-3 rounded-lg md:shadow-lg
+        ">
+          <div class="relative overflow-hidden">
+            <img src="${mainImage}" class="w-full rounded-lg h-60 object-contain md:h-80 py-4 bg-gray-100">
+            ${renderEndedBanner(listing.endsAt)}
+          </div>  
+          
             ${
               extraImages.length > 0
                 ? `<div class="flex gap-2 mt-2 flex-wrap">
@@ -59,7 +68,11 @@ export function renderProfileListingCard(listing) {
   return `
     <a href="/html-pages/singlelisting.html?id=${id}" aria-labelledby="my-listing" class="card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg">
       <div class="flex items-center gap-2">
-        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 h-20 md:w-40 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
+        <div class="relative overflow-hidden">
+          <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 h-20 md:w-40 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
+          ${renderEndedBannerSmall(listing.endsAt)}
+        </div>
+        
         <div class="flex flex-col justify-center gap-2">
           <p class="font-semibold">${title}</p>
           <p>Bud: ${_count?.bids ?? 0}</p>
@@ -79,7 +92,11 @@ export function renderBidListings(bid) {
   return `
     <a href="/html-pages/singlelisting.html?id=${id}" class="card-wrapper block flex justify-between items-center bg-white px-2 py-2 shadow-lg rounded-lg ">
       <div class="flex items-center gap-2">
-        <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-40 h-20 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
+        <div class="relative overflow-hidden">
+          <img src="${media?.[0]?.url || "/public/assets/images/listing_img_placeholder.png"}" class="w-20 sm:w-20 md:w-40 h-20 md:h-40 2xl:w-45 2xl:h-45 rounded-lg object-cover bg-gray-200"/>
+          ${renderEndedBannerSmall(listing.endsAt)}
+        </div>
+        
         <div class="flex flex-col gap-2 justify-center md:text-lg">
           <p class="font-semibold ">${title}</p>
           <p>Mitt bud: ${amount}</p>
