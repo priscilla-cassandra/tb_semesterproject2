@@ -18,16 +18,16 @@ function renderSingleListingPage(listing) {
   const loggedIn = isLoggedIn();
   const owner = loggedIn && isOwner(listing);
   return `
-        <div class="md:w-3/5 w-full">
+        <div class="md:w-3/5 w-full px-1">
             ${renderSingleListing(listing)}
         </div>
-        <div class="flex flex-col gap-4 md:w-2/5 w-full md:bg-white px-4 py-4 rounded-lg md:shadow-lg">
+        <div class="flex flex-col w-full gap-4 md:w-2/5 w-full md:bg-white py-4 px-1 rounded-lg md:shadow-lg">
             <div id="bid-history-container">
                ${renderBidHistory(listing.bids)} 
             </div>
             ${
               !loggedIn
-                ? `<p>Please log in to place bid</p>`
+                ? `<p class="font-semibold">Du må være logget inn for å legge inn bud</p>`
                 : owner
                   ? renderListingActions(listing)
                   : renderBidForm(listing)
