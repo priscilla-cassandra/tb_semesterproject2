@@ -14,6 +14,7 @@ const messageText = document.getElementById("message-title");
 const errorMessage = document.getElementById("message");
 const successMessage = document.getElementById("success-message");
 
+const addExtraImgBtn = document.getElementById("add-img-btn");
 const deleteButton = document.getElementById("delete-btn");
 
 const id = new URLSearchParams(window.location.search).get("id");
@@ -113,6 +114,17 @@ getListingToEdit();
 editForm.addEventListener("submit", (event) => {
   event.preventDefault();
   updateListing();
+});
+
+addExtraImgBtn.addEventListener("click", () => {
+  const id = `extra-img-${Date.now()}`;
+  const extraImgRow = document.createElement("div");
+  extraImgRow.className = "flex flex-col gap-2";
+  extraImgRow.innerHTML = `
+    <label for="${id}">Ekstra bilde</label>
+    <input id="${id}" type="url" name="extra-img" placeholder="Bilde URL" class="w-full rounded-md border px-2 py-2"/>
+  `;
+  document.getElementById("extra-img-container").appendChild(extraImgRow);
 });
 
 deleteButton.addEventListener("click", async () => {
