@@ -10,6 +10,6 @@ export function renderEndedBanner(endsAt) {
 
 export function renderEndedBannerSmall(endsAt) {
   return isAuctionEnded(endsAt)
-    ? `<span class="absolute top-4 -left-8 w-24 text-xs py-0.5 rotate-[-45deg] bg-indigo-900 text-whote text-center shadow-md">Avsluttet</span>`
+    ? `<span class="absolute top-4 -left-6 w-25 text-xs py-0.5 rotate-[-45deg] md:top-6 md:w-36 md:-left-8 md:text-lg bg-indigo-900 text-white text-center shadow-md">Avsluttet</span>`
     : "";
 }
