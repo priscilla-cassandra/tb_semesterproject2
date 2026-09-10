@@ -3,6 +3,11 @@ import {
   updateListing as updateListingApi,
   deleteListing,
 } from "../api/listings";
+import { isLoggedIn } from "../api/auth";
+
+if (!isLoggedIn()) {
+  window.location.href = "/html-pages/login.html";
+}
 
 const editForm = document.getElementById("edit-listing-form");
 const titleInput = document.getElementById("edit-title");
@@ -130,9 +135,14 @@ addExtraImgBtn.addEventListener("click", () => {
 deleteButton.addEventListener("click", async () => {
   const confirmed = confirm("Er du sikker på at du vil slette annonsen?");
   if (!confirmed) return;
-  await deleteListing(id);
+  try {
+    await deleteListing(id);
 
-  setTimeout(() => {
-    window.location.href = "/index.html";
-  }, 2000);
+    setTimeout(() => {
+      window.location.href = "/index.html";
+    }, 2000);
+  } catch (error) {
+    console.error(error.message);
+    showError("Kunne ikke slette annonsen");
+  }
 });

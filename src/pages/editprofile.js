@@ -1,5 +1,9 @@
-import { getName } from "../api/auth";
+import { getName, isLoggedIn } from "../api/auth";
 import { getProfile, updateProfile as updateProfileApi } from "../api/profile";
+
+if (!isLoggedIn()) {
+  window.location.href = "/html-pages/login.html";
+}
 
 const name = getName();
 const editForm = document.getElementById("edit-profile");

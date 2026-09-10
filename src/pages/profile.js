@@ -1,5 +1,5 @@
 import "/styles/main.css";
-import { logout } from "../api/auth";
+import { logout, isLoggedIn } from "../api/auth";
 import {
   getProfile,
   getListingsByProfile,
@@ -11,6 +11,10 @@ import {
   renderProfileListingCard,
   renderBidListings,
 } from "../components/listingcard";
+
+if (!isLoggedIn()) {
+  window.location.href = "/html-pages/login.html";
+}
 
 export function renderProfile(profile) {
   const {
@@ -54,22 +58,27 @@ export function renderProfile(profile) {
 }
 
 export async function initProfilePage() {
-  const name = getName();
-  const profile = await getProfile(name);
-  const listings = await getListingsByProfile(name);
-  const bids = await getBidsByProfile(name);
+  try {
+    const name = getName();
+    const profile = await getProfile(name);
+    const listings = await getListingsByProfile(name);
+    const bids = await getBidsByProfile(name);
 
-  const container = document.getElementById("profile-page");
-  container.innerHTML = renderProfile({ ...profile, listings, bids });
+    const container = document.getElementById("profile-page");
+    container.innerHTML = renderProfile({ ...profile, listings, bids });
 
-  document.getElementById("logout-button").addEventListener("click", () => {
-    logout();
-  });
-  document
-    .getElementById("edit-profile-button")
-    .addEventListener("click", () => {
-      window.location.href = "/html-pages/editprofile.html";
+    document.getElementById("logout-button").addEventListener("click", () => {
+      logout();
+      window.location.href = "/html-pages/login.html";
     });
+    document
+      .getElementById("edit-profile-button")
+      .addEventListener("click", () => {
+        window.location.href = "/html-pages/editprofile.html";
+      });
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 initProfilePage();

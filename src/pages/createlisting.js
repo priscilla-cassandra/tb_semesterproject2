@@ -1,4 +1,9 @@
 import { postNewListing } from "../api/listings";
+import { isLoggedIn } from "../api/auth";
+
+if (!isLoggedIn()) {
+  window.location.href = "/html-pages/login.html";
+}
 
 const newListingForm = document.getElementById("new-listing");
 const titleInput = document.getElementById("title");
