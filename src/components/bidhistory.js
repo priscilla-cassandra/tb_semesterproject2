@@ -7,7 +7,7 @@ export function renderBidHistory(bids) {
 
   return `
     <h1 class="font-semibold text-lg"><span class="text-xl font-bold">Høyeste bud:</span> <br> ${highestBid} credits</h1>
-    <h2 class="font-semibold mt-4">Budhistorikk:</h2>
+    <h2 class="font-semibold mt-4 mb-2">Budhistorikk:</h2>
     <ul class="mb-4">
         ${bids
           .map((bid) => {
@@ -16,7 +16,7 @@ export function renderBidHistory(bids) {
             const formattedTime = date.toLocaleTimeString("no-NO");
 
             return `
-            <li class="flex gap-4">
+            <li class="grid grid-cols-[120px_1fr_auto]">
                 <span>${bid.bidder.name}</span>
                 <span>${formattedDate}, ${formattedTime}</span>
                 <span>${bid.amount} credits </span>
