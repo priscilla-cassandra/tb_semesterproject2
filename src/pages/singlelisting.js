@@ -1,7 +1,10 @@
 import { getSingleListing } from "../api/listings";
 import { renderBidForm, placeBid } from "../components/bidform";
 import { renderBidHistory } from "../components/bidhistory";
-import { renderSingleListing } from "../components/listingcard";
+import {
+  renderSingleListing,
+  imageCarouselListeners,
+} from "../components/listingcard";
 import { isOwner } from "../api/auth";
 import {
   renderListingActions,
@@ -43,6 +46,8 @@ async function initPageLoad() {
   const owner = loggedIn && isOwner(listing);
 
   container.innerHTML = renderSingleListingPage(listing);
+
+  imageCarouselListeners(listing);
 
   //If the logged in user is NOT the owner of the listing, call placeBid()
   if (owner) {
