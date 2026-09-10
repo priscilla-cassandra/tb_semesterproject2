@@ -33,23 +33,29 @@ export function listingGridEventListener() {
 export function renderSingleListing(listing) {
   const mainImage =
     listing.media[0]?.url || "/assets/images/listing_img_placeholder.png";
-  const extraImages = listing.media.slice(1); //Get everything except index 0
   const hasEnded = new Date(listing.endsAt) < new Date();
   return `
         <section class="min-w-0 w-full md:bg-white md:py-5 md:px-3 rounded-lg md:shadow-lg
         ">
           <div class="relative overflow-hidden">
-            <img src="${mainImage}" class="w-full rounded-lg h-60 object-contain md:h-80 py-4 bg-gray-100">
+            <img id="main-image" src="${mainImage}" class="w-full rounded-lg h-60 object-contain md:h-80 py-4 bg-gray-100">
             ${renderEndedBanner(listing.endsAt)}
+            ${
+              listing.media.length > 1
+                ? `<button id="previous-button" class="absolute left-2 top-1/2 bg-white rounded-full -translate-y-1/2"><i class="fa-solid fa-chevron-left"></i></button>
+                  <button id="next-button" class="absolute right-2 top-1/2 bg-white rounded-full -translate-y-1/2"><i class="fa-solid fa-chevron-right"></i></button>
+                  `
+                : ""
+            }
           </div>  
           
             ${
-              extraImages.length > 0
+              listing.media.length > 1
                 ? `<div class="flex gap-2 mt-2 flex-wrap">
-                ${extraImages
+                ${listing.media
                   .map(
-                    (img) =>
-                      `<img src="${img.url}" alt="${img.alt || ""}" class="w-16 h-16 object-cover rounded-md bg-gray-200"/>`,
+                    (img, i) =>
+                      `<img src="${img.url}" alt="${img.alt || ""}" data-index="${i}" class="thumbnail-image w-16 h-16 object-cover rounded-md bg-gray-200"/>`,
                   )
                   .join("")}</div>`
                 : ""
@@ -61,6 +67,45 @@ export function renderSingleListing(listing) {
             </p>
         </section>
     `;
+}
+
+//Carousel feature:
+export function imageCarouselListeners(listing) {
+  const images = listing.media;
+  const mainImage = document.getElementById("main-image");
+  const nextButton = document.getElementById("next-button");
+  const prevButton = document.getElementById("previous-button");
+  const thumbnailImages = document.querySelectorAll(".thumbnail-image");
+  let currentIndex = 0;
+
+  function renderSlide() {
+    const image = images[currentIndex];
+    mainImage.src = image.url;
+    mainImage.alt = image.alt || listing.title;
+  }
+
+  function showCarouselImage() {
+    if (currentIndex >= images.length) currentIndex = 0;
+    if (currentIndex < 0) currentIndex = images.length - 1;
+    renderSlide();
+  }
+
+  nextButton.addEventListener("click", () => {
+    currentIndex++;
+    showCarouselImage();
+  });
+
+  prevButton.addEventListener("click", () => {
+    currentIndex--;
+    showCarouselImage();
+  });
+
+  thumbnailImages.forEach((thumbnail) => {
+    thumbnail.addEventListener("click", () => {
+      currentIndex = Number(thumbnail.dataset.index);
+      showCarouselImage();
+    });
+  });
 }
 
 export function renderProfileListingCard(listing) {
