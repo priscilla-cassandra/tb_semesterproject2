@@ -19,6 +19,7 @@ document.getElementById("footer").innerHTML = renderFooter(loggedIn);
 
 async function displayCreditsMobile() {
   const creditsMobile = document.getElementById("credits-mobile");
+  if (!creditsMobile) return;
   creditsMobile.innerHTML = renderCreditsMobile(credits ?? 0);
 }
 
