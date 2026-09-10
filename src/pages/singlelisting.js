@@ -18,7 +18,7 @@ function renderSingleListingPage(listing) {
         <div class="md:w-3/5 w-full">
             ${renderSingleListing(listing)}
         </div>
-        <div class="flex flex-col gap-4 md:w-2/5 w-full">
+        <div class="flex flex-col gap-4 md:w-2/5 w-full md:bg-white px-4 py-4 rounded-lg md:shadow-lg">
             <div id="bid-history-container">
                ${renderBidHistory(listing.bids)} 
             </div>
