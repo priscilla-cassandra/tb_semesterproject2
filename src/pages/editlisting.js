@@ -35,7 +35,7 @@ async function getListingToEdit() {
     const result = await getSingleListing(id);
 
     titleInput.value = result.title;
-    mainImageInput.value = result.media[0].url;
+    mainImageInput.value = result.media[0]?.url ?? "";
     descriptionInput.value = result.description;
     endsAtInput.value = result.endsAt.slice(0, 16);
     endsAtInput.disabled = true;
