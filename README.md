@@ -8,14 +8,15 @@ This is a semester project developed through the Noroff Frontend-development pro
 - HTML
 - Tailwind CSS
 - vanilla JavaScript
-- <br>
+  <br>
+  
 ## Running the project
 The project can be viewed and run by cloning the repo to VSCode
-1.Clone the repo (Ctrl+Shift+P -> Git:Clone -> paste URL 
-2. Make sure you have VS Code installed on your computer
-3. Inside VS Code, press Ctrl+Shift+P to open the Command Palette
-4. Type: `Git: Clone`
-5. Paste the URL of the repository: `https://github.com/priscilla-cassandra/theSweetSpot_project-exam1.git`
-6. Select a folder on your local machine to save repository
-7. When prompted, click "Open" to open the cloned repository in VS Code
+1. Clone the repo (Ctrl+Shift+P -> `Git:Clone` -> paste URL `https://github.com/priscilla-cassandra/tb_semesterproject2.git`)
+2. Open folder in VSCode
+3. Open a terminal (Ctrl+)
+4. Run `npm install` to install dependencies from package.json
+5. Run `npm run dev` to start the Vite dev server
+6. Open the local URL shown in the terminal (usually `http://localhost:5173`)
+
 
