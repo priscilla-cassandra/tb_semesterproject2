@@ -22,4 +22,4 @@ async function displayCreditsMobile() {
   creditsMobile.innerHTML = renderCreditsMobile(credits ?? 0);
 }
 
-displayCreditsMobile(credits);
+if (loggedIn) displayCreditsMobile(credits);
