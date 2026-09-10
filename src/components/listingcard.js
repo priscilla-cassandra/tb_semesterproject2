@@ -90,15 +90,17 @@ export function imageCarouselListeners(listing) {
     renderSlide();
   }
 
-  nextButton.addEventListener("click", () => {
-    currentIndex++;
-    showCarouselImage();
-  });
+  if (nextButton && prevButton) {
+    nextButton.addEventListener("click", () => {
+      currentIndex++;
+      showCarouselImage();
+    });
 
-  prevButton.addEventListener("click", () => {
-    currentIndex--;
-    showCarouselImage();
-  });
+    prevButton.addEventListener("click", () => {
+      currentIndex--;
+      showCarouselImage();
+    });
+  }
 
   thumbnailImages.forEach((thumbnail) => {
     thumbnail.addEventListener("click", () => {
