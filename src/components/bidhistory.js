@@ -16,7 +16,7 @@ export function renderBidHistory(bids) {
             const formattedTime = date.toLocaleTimeString("no-NO");
 
             return `
-            <li>
+            <li class="flex gap-4">
                 <span>${bid.bidder.name}</span>
                 <span>${formattedDate}, ${formattedTime}</span>
                 <span>${bid.amount} credits </span>
