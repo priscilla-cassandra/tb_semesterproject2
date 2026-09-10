@@ -2,7 +2,7 @@ import { isLoggedIn } from "../api/auth";
 import { post, get } from "../api/apiclient";
 import { renderBidHistory } from "./bidhistory";
 
-export function renderBidForm(listing) {
+export function renderBidForm() {
   return `
         <form id="bid-form" class="flex flex-col gap-2">
             <input type="number" id="bid-input" aria-label="Bud" min="1" step="1" placeholder="Legg inn bud her" class="w-full rounded border py-2 text-center"/>
