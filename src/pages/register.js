@@ -29,7 +29,7 @@ async function registerUser(userInput) {
   submitButton.disabled = true;
 
   try {
-    const newUser = await post("/auth/register", userInput);
+    await post("/auth/register", userInput);
     showSuccess();
 
     setTimeout(() => {
