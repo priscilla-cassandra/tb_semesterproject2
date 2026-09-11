@@ -57,12 +57,21 @@ export function placeBid(listing) {
       return;
     }
 
-    const amount = Number(document.getElementById("bid-input").value);
+    const amount = Number(document.getElementById("bid-input").value); //reads input, turns the string to a number
+    const highestBid = listing.bids?.length
+      ? Math.max(...listing.bids.map((bid) => bid.amount)) //If bids, map over them, return largest bid
+      : 0; //If no bids, default to 0
+
+    if (amount <= highestBid) {
+      showError(`Budet må være høyere enn ${highestBid} credits`);
+      return;
+    }
 
     try {
       await post(`/auction/listings/${listing.id}/bids`, { amount });
 
       const updated = await get(`/auction/listings/${listing.id}?_bids=true`);
+      listing.bids = updated.data.bids;
       const bidHistoryContainer = document.getElementById(
         "bid-history-container",
       );
