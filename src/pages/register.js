@@ -32,8 +32,6 @@ async function registerUser(userInput) {
     const newUser = await post("/auth/register", userInput);
     showSuccess();
 
-    console.log("User created", newUser);
-
     setTimeout(() => {
       window.location.href = "/html-pages/login.html";
     }, 1500);
