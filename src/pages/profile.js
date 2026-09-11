@@ -19,6 +19,7 @@ if (!isLoggedIn()) {
 export function renderProfile(profile) {
   const {
     name,
+    email,
     banner,
     credits,
     bio,
@@ -34,7 +35,8 @@ export function renderProfile(profile) {
                 <article class="flex flex-row items-center gap-2">
                     <img src="${avatar?.url || "/public/assets/images/profile_placeholder.png"}" alt="${name}'s profile picture" class="rounded-full w-full h-40">
                     <div>
-                        <div class="text-xl mb-2 font-semibold">${name}</div>
+                        <p class="text-xl font-semibold">${name}</p>
+                        <p class="mb-2 opacity-75">${email}</p>
                         <div class="text-lg">${renderCreditsMobile(credits)}</div>
                     </div>
                 </article>
