@@ -18,7 +18,7 @@ export function renderBidHistory(bids) {
             return `
             <li class="grid grid-cols-[120px_1fr_auto]">
                 <span>${bid.bidder.name}</span>
-                <span>${formattedDate}, ${formattedTime}</span>
+                <span class="opacity-75">${formattedDate}, ${formattedTime}</span>
                 <span>${bid.amount} credits </span>
             </li>
           `;
