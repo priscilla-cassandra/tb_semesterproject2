@@ -61,6 +61,7 @@ export function renderSingleListing(listing) {
                 : ""
             }
             <h1 class="text-xl lg:text-2xl font-semibold my-2">${listing.title}</h1>
+            <p class="mb-2 opacity-75">Selger: ${listing.seller?.name ?? "Ukjent"}</p>
             <p>${listing.description}</p>
             <p class="mt-4 text-lg font-semibold">
             ${hasEnded ? "Auksjonen er avsluttet" : `Auksjonen avsluttes: ${new Date(listing.endsAt).toLocaleDateString("no-NO")}, ${new Date(listing.endsAt).toLocaleTimeString("no-NO")}`}
