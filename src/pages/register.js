@@ -38,7 +38,7 @@ async function registerUser(userInput) {
   } catch (error) {
     console.error(error.message);
 
-    if (error.status === 409) {
+    if (error.status === 400 && error.message === "Profile already exists") {
       showError("Bruker med denne e-posten eller brukernavnet finnes allerede");
     } else if (error.status === 400) {
       showError("Ugyldig informasjon. Sjekk feltet og prøv igjen");
