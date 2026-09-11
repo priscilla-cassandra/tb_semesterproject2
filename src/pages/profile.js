@@ -48,11 +48,11 @@ export function renderProfile(profile) {
             </section>
             <section class="flex flex-col gap-3 mb-6">
                 <h2 class="font-semibold">Mine annonser</h2>
-                ${listings.map(renderProfileListingCard).join("")}
+                ${listings.length ? listings.map(renderProfileListingCard).join("") : `<p>Du har ingen annonser</p>`}
             </section>
             <section class="flex flex-col gap-3 md:mb-15">
                 <h2 class="font-semibold">Mine bud</h2>
-                ${bids.map(renderBidListings).join("")}
+                ${bids.length ? bids.map(renderBidListings).join("") : `<p>Du har ikke bydd på noen annonser</p>`}
             </section>
         </div>
         
