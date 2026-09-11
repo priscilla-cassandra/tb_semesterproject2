@@ -35,7 +35,7 @@ async function userLogin(loginDetails) {
     console.error(error.message);
 
     if (error.status === 401) {
-      showError("Feil brukernavn eller passord");
+      showError("Feil epost eller passord");
     } else if (error.status === undefined) {
       //Error if there is no response at all
       showError("Kunne ikke koble til serveren. Sjekk internettforbindelsen");
