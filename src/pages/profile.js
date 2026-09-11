@@ -40,7 +40,7 @@ export function renderProfile(profile) {
                         <div class="text-lg">${renderCreditsMobile(credits)}</div>
                     </div>
                 </article>
-                <p>${bio}</p>
+                <p>${bio || "Ingen bio lagt til"}</p>
                 <div class="flex gap-2 justify-center">
                     <button type="button" id="edit-profile-button"class=" hover:bg-primary-blue-hover bg-primary-blue text-white rounded-lg flex-1 py-2 min-w-[160px] font-semibold">Rediger profil</button>
                     <button type="button" id="logout-button" class="hover:bg-gray-200 flex-1 bg-white border border-primary-blue rounded-lg text-primary-blue py-2 min-w-[160px] font-semibold">Logg ut</button>
